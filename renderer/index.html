@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cris Translator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="app">
+    <header class="app__header">
+      <div class="header__left">
+        <div class="branding">
+          <span class="branding__title">Cris Translator</span>
+          <span class="branding__status" data-status>Ready</span>
+        </div>
+      </div>
+      <div class="header__right">
+        <div class="quick-controls">
+          <select class="control-select" data-model>
+            <option value="gpt-4.1-nano">Nano</option>
+            <option value="gpt-4.1-mini">Mini</option>
+          </select>
+          <select class="control-select" data-target>
+            <option value="Vietnamese">VI</option>
+            <option value="English">EN</option>
+            <option value="Japanese">JA</option>
+          </select>
+        </div>
+        <button class="header-btn" data-settings title="Settings">⚙</button>
+        <button class="header-btn header-btn--close" data-close title="Đóng">✕</button>
+      </div>
+    </header>
+
+    <main class="app__content">
+      <div class="translation-panel">
+        <div class="panel-section panel-section--input">
+          <div class="section-header">
+            <span class="section-label">Input</span>
+            <div class="section-actions">
+              <button class="action-btn" data-speak-input title="Đọc">🔊</button>
+              <button class="action-btn action-btn--clear" data-clear title="Xóa">⌫</button>
+            </div>
+          </div>
+          <textarea class="input-field" data-input placeholder="Paste or type text to translate..."></textarea>
+          <div class="section-footer">
+            <select class="control-select" data-translation-mode>
+              <option value="meaning">Dịch nghĩa</option>
+              <option value="detailed">Dịch chi tiết</option>
+            </select>
+            <button class="primary-btn" data-translate>
+              <span class="btn-icon">→</span>
+              <span class="btn-text">Translate</span>
+              <span class="btn-spinner" style="display: none;">⟳</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="panel-section panel-section--output">
+          <div class="section-header">
+            <span class="section-label" data-language>Output</span>
+            <div class="section-actions">
+              <button class="action-btn" data-speak-output title="Đọc">🔊</button>
+              <button class="action-btn" data-copy title="Copy">⧉</button>
+            </div>
+          </div>
+          <div class="output-field" data-result>
+            <div class="output-placeholder">Translation will appear here...</div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="settings-panel" data-settings-panel>
+      <div class="settings-header">
+        <span class="settings-title">Settings</span>
+        <button class="header-btn header-btn--close" data-settings-close title="Đóng">✕</button>
+      </div>
+      <div class="settings-content">
+        <div class="settings-section">
+          <h3 class="settings-section-title">General Settings</h3>
+          <div class="settings-group">
+            <label class="settings-label" style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" data-startup style="cursor: pointer;">
+              <span>Launch at startup</span>
+            </label>
+          </div>
+        </div>
+        <div class="settings-section">
+          <h3 class="settings-section-title">Window Settings</h3>
+          <div class="settings-group">
+            <label class="settings-label">Opacity: <span data-opacity-value>100%</span></label>
+            <input type="range" class="settings-range" data-opacity min="0.3" max="1.0" step="0.05" value="1.0">
+          </div>
+        </div>
+        <div class="settings-section">
+          <h3 class="settings-section-title">Voice Settings</h3>
+          <div class="settings-languages" data-voice-settings></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="renderer.js"></script>
+</body>
+
+</html>

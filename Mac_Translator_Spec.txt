@@ -1,0 +1,91 @@
+🧭 Mac Translator – Ứng dụng dịch nhanh cho macOS
+
+TỔNG QUAN
+Mac Translator là một ứng dụng nhẹ chạy trên macOS, hiển thị ở menu bar (header).
+Người dùng có thể dịch nhanh bất kỳ đoạn văn bản nào chỉ bằng cách:
+- Bôi đen văn bản → nhấn phím tắt (Cmd + Shift + D)
+- Ứng dụng tự động đọc nội dung được copy, gửi đến OpenAI API (gpt-4.1-nano) để dịch
+- Kết quả hiển thị ở một popup nhỏ, gọn gàng, không làm gián đoạn luồng công việc
+
+MỤC TIÊU
+- Dịch nhanh – gọn – chính xác
+- Dễ sử dụng, ít chiếm tài nguyên
+- Có thể chạy nền (ẩn trong header)
+- Tương thích macOS (>= Monterey)
+
+TÍNH NĂNG CHÍNH
+- Dịch nhanh bằng phím tắt (Cmd + Shift + D)
+- Icon menu bar (Tray Icon)
+- Hiển thị popup dịch
+- Nhận ngôn ngữ tự động
+- Clipboard integration
+- Global shortcut
+- Ẩn popup tự động
+- Giao diện tối giản
+- Chọn model dịch (gpt-4.1-nano hoặc gpt-4.1-mini)
+- Lưu lịch sử (optional)
+
+CẤU TRÚC THƯ MỤC
+mac-translator/
+├── main.js
+├── preload.js
+├── package.json
+├── .env
+├── assets/
+│   └── iconTemplate.png
+├── renderer/
+│   ├── index.html
+│   ├── renderer.js
+│   ├── style.css
+│   └── settings.html (optional)
+└── utils/
+    └── translator.js
+
+CÔNG NGHỆ
+- Electron + HTML/CSS/JS
+- OpenAI API (gpt-4.1-nano)
+- Node.js
+- LocalStorage/SQLite
+- macOS >=12, Node >=18
+- IDE: VSCode
+
+MÔ TẢ MODULE
+main.js: tạo Tray, BrowserWindow, globalShortcut.
+translator.js: gọi OpenAI API.
+preload.js: bridge IPC.
+renderer: giao diện popup hiển thị bản dịch.
+
+THIẾT LẬP
+npm install
+npm start
+
+BUILD APP
+npm install electron-builder --save-dev
+npx electron-builder --mac
+
+TÙY CHỌN BUILD
+"build": {
+  "appId": "com.namcris.mactranslator",
+  "mac": {
+    "category": "public.app-category.productivity"
+  }
+}
+
+HOTKEY
+⌘ + ⇧ + D → Dịch nhanh
+⌘ + ⇧ + H → Lịch sử
+⌘ + ⇧ + Q → Thoát
+
+NÂNG CẤP
+- Popup gần con trỏ
+- Dark mode
+- Đa ngôn ngữ
+- Lịch sử dịch
+- Text-to-speech
+- Auto Detect
+- Plugin Chrome/Safari
+
+BẢO MẬT
+- API key trong .env, không build vào app
+- Không lưu text gửi qua API
+- Không thu thập dữ liệu người dùng
