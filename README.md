@@ -1,6 +1,7 @@
 # Anywe Translator
 
-Ứng dụng dịch nhanh cho macOS bằng Electron JS
+Ứng dụng dịch nhanh cho macOS bằng Electron JS.
+
 Có thể dịch nhanh chóng ở mọi ứng dụng khác bằng các hiện Popup ngay tại ứng dụng đó, thay cho việc chuyển tab qua lại (ChatGPT hoặc Google Dịch)
 Dịch văn bản nhanh chóng và chính xác bằng OpenAI API.
 
